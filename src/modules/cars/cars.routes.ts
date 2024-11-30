@@ -9,4 +9,4 @@ router.get('/', );
 router.put('/:carId', );
 router.delete('/:carId', );
 
-export const carRoutes = router;
+export const CarRoutes = router;

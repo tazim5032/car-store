@@ -25,12 +25,12 @@ const updateCarIntoDB = async (id: string, car: Car)=>{
 
 
 const deleteCarFromDB = async (id: string) =>{
-    const result = await CarModel.findByIdAndDelete({_id: new mongoose.Types.ObjectId(id)});
+    const result = await CarModel.deleteOne({_id: new mongoose.Types.ObjectId(id)});
     return result;
 }
 
 
-export const productService = {
+export const carService = {
     createCarIntoDB,
     getAllCarsFromDB,
     getSingleCarFromDB,
