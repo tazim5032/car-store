@@ -1,5 +1,6 @@
-import { model, Schema } from "mongoose";
+import { model, Schema} from "mongoose";
 import { Order } from "./orders.interface";
+
 
 const orderSchema = new Schema<Order>(
   {
@@ -10,5 +11,9 @@ const orderSchema = new Schema<Order>(
   },
   { timestamps: true }
 );
+
+orderSchema.post("save", function (doc, next) {
+  next();
+});
 
 export const OrderModel = model<Order>("OrderModel", orderSchema);

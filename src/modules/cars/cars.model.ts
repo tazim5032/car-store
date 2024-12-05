@@ -16,4 +16,4 @@ const carSchema = new Schema<Car>({
     inStock: {type : Boolean, required: true},
 },{timestamps : true})
 
-export const CarModel = model<Car>('ProductModel',carSchema);
+export const CarModel = model<Car>('CarModel',carSchema);
