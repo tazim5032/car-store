@@ -11,8 +11,8 @@ const createCar = async (req: Request, res: Response) => {
     const result = await carService.createCarIntoDB(validateCar);
 
     res.status(200).json({
-      success: true,
       message: "Car created successfully",
+      success: true,
       data: result,
     });
   } catch (error) {
@@ -29,8 +29,8 @@ const getAllCars = async (req: Request, res: Response) => {
     const result = await carService.getAllCarsFromDB();
 
     res.status(200).json({
-      success: true,
       message: "Cars retrieved successfully",
+      success: true,
       data: result,
     });
   } catch (error) {
@@ -62,18 +62,19 @@ const getSingleCar = async (req: Request, res: Response) => {
 
 const updateCar = async (req: Request, res: Response) => {
   try {
-    const CarId = req.params.CarId;
-    const updatedCar = req.body;
-    const result = await carService.updateCarIntoDB(CarId, updatedCar);
+    const id = req.params.carId;
+    const carData = req.body; 
+    const result = await carService.updateCarIntoDB(id, carData);
+
     res.status(200).json({
-      success: true,
       message: "Car updated successfully",
+      success: true,
       data: result,
     });
   } catch (error) {
     res.status(404).json({
-      success: false,
       message: "Something went wrong",
+      success: false,
       error,
     });
   }
@@ -81,28 +82,28 @@ const updateCar = async (req: Request, res: Response) => {
 
 const deleteCar = async (req: Request, res: Response) => {
   try {
-    const CarId = req.params.CarId;
+    const id = req.params.carId;
 
-    const result = await carService.deleteCarFromDB(CarId);
+    const result = await carService.deleteCarFromDB(id);
 
 
     if (result.deletedCount) {
       res.status(200).json({
+        message: "Car deleted successfully",
         success: true,
-        message: "Bike deleted successfully",
         data: {},
       });
     } else {
       res.status(200).json({
+        message: "Car already deleted ",
         success: true,
-        message: "Bike already deleted ",
         data: {},
       });
     }
   } catch (error) {
     res.status(404).json({
-      success: false,
       message: "Something went wrong",
+      success: false,
       error,
     });
   }

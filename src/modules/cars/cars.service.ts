@@ -19,7 +19,7 @@ const getSingleCarFromDB = async (id: string) =>{
 }
 
 const updateCarIntoDB = async (id: string, car: Car)=>{
-    const result = await CarModel.findByIdAndUpdate({_id: new mongoose.Types.ObjectId(id)}, car, {new: true});
+    const result = await CarModel.findByIdAndUpdate(id, car, {new: true});
     return result;
 }
 

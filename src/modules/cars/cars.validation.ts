@@ -10,7 +10,7 @@ export const carValidationSchema = z.object({
     .number()
     .min(0, { message: "Price must be greater than or equal to 0." }),
     category: z
-    .enum(["Sedan", "SUV", "Truck", "Coupe", "Covertible"], {
+    .enum(["Sedan", "SUV", "Truck", "Coupe", "Convertible"], {
       errorMap: () => ({ message: "Category must be one of: Sedan, SUV, Truck, Coupe, Convertible." }),
     }),
   description: z.string({ message: "Description is required." }),
