@@ -42,7 +42,7 @@ Tracks orders placed by customers.
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/car-store.git
+   git clone https://github.com/tazim5032/car-store.git
    cd car-store
    ```
 
